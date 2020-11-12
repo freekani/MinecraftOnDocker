@@ -15,3 +15,4 @@ services:
         environment: 
             EULA: "TRUE" #TRUEじゃないと動きません
             VERSION: "any_version" #ここに使いたいバージョンを入れる
+            MEMORY: "1G"
