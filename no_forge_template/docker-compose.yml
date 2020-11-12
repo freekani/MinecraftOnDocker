@@ -1,0 +1,17 @@
+version: '3'
+services:
+    minecraft-server: #サービス名
+        container_name: minecraft #コンテナの名前はこれになる
+        image: itzg/minecraft-server #Dockerイメージ
+        ports:
+            - "25565:25565"
+        tty: true #コンテナへのattach時に標準出力が表示される
+        stdin_open: true #コンテナの標準出力をつけっぱなしにする(いつでも使えるようにする)
+        restart: always #再起動オプション、alwaysはコンテナに問題が発生した場合ほとんどのケースで再起動してくれる
+        
+        volumes:
+            - ./var/mods:/data/mods/
+            - ./var/data:/data/
+        environment: 
+            EULA: "TRUE" #TRUEじゃないと動きません
+            VERSION: "any_version" #ここに使いたいバージョンを入れる
